@@ -2,25 +2,32 @@ const contenedorCardUp = document.getElementById('contenedorFlexUp')
 
 let cardUp = '';
 
-for (const datos of data.events){
-    cardUp += `<div class="card mx-1 my-2" style="width: 20rem; border: 1px solid black;">
-                <img src= "${datos.image}" class="card-img-top img-fluid" alt=" " style="width: 100%; height: 12rem;">
-                <div class="card-body text-center">
-                <h5 class="card-title">${datos.name}</h5>
-                <p class="card-text">${datos.description}</p>
-                <div class="card-footer text-end">
-                <span>Price $${datos.price}</span>
-                <a href="./stats.html" class="btn btn-primary" style="margin-left: 5rem;">Details</a>
-                </div>
-                </div>
-            </div>`
-}
+for(const event of data.events) {
+    let currentD = new Date(data.currentDate);
 
-if(data.events.date >= "2022"){
-    console.log(data.events)
-}
+    let eventD = new Date(event.date)
 
-contenedorCardUp.innerHTML = cardUp
-contenedorCardUp.classList.add('d-flex')
-contenedorCardUp.classList.add('flex-wrap')
+    if(currentD < eventD){
+
+    cardUp += `<div class="card mb-3" style="width: 50rem; height: 22rem;">
+                    <div class="d-flex justify-content-evenly align-items-center p-5">
+                    <div class="col-7 align-items-center">
+                    <img src="${event.image}" class="img-fluid rounded-start imgc" alt="Concert" style="width: 20rem; height: 15rem; border-radius: .4rem;">
+                    </div>
+                    <div class="col-5">
+                        <div class="card-body text-center">
+                        <h5 class="card-title">${event.name}</h5>
+                        <p class="card-text">${event.category}</p>
+                        <p class="card-text">${event.description}</p>
+                        <p class="card-text">${event.price}</p>
+                    </div>
+                </div>
+            </div>
+        </div>`
+
+        contenedorCardUp.innerHTML = cardUp
+        contenedorCardUp.classList.add('d-flex') 
+        contenedorCardUp.classList.add('flex-wrap')
+    }  
+}
 
