@@ -30,4 +30,3 @@ for(const event of data.events) {
         contenedorCardUp.classList.add('flex-wrap')
     }  
 }
-
