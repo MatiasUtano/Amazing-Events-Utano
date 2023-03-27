@@ -20,6 +20,7 @@ for(const event of data.events) {
                         <p class="card-text">${event.category}</p>
                         <p class="card-text">${event.description}</p>
                         <p class="card-text">${event.price}</p>
+                        <a href="./details.html?id=${event._id}" class="btn btn-primary" style="">Details</a>
                     </div>
                 </div>
             </div>
